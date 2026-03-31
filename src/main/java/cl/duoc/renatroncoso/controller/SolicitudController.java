@@ -37,9 +37,9 @@ public class SolicitudController {
     public ResponseEntity<?> createSolicitud(@Valid @RequestBody Solicitud solicitud) {
         return ResponseEntity.ok(solicitudService.createSolicitud(solicitud));
     }
-    @PutMapping
-    public ResponseEntity<?> updateSolicitud(@PathVariable Long id, @Valid @RequestBody Solicitud solicitud) {
-        return solicitudService.updateSolicitud(id, solicitud)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateSolicitud(@PathVariable Long idAlt, @Valid @RequestBody Solicitud solicitud) {
+        return solicitudService.updateSolicitud(idAlt, solicitud)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

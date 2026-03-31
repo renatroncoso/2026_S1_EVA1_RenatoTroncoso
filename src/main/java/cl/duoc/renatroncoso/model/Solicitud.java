@@ -14,7 +14,7 @@ public class Solicitud {
     private Long id;
     private String informacionCliente;
     private String tipoAtencion;
-    private boolean estado;
+    private String estado;
     private Date fechaRegistro;
     private int nivelPrioridad;
 }

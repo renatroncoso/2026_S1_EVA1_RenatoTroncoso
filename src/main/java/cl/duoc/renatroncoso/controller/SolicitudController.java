@@ -18,7 +18,7 @@ import cl.duoc.renatroncoso.service.SolicitudService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping("/api/v1/solicitud")
 public class SolicitudController {
     @Autowired
     private SolicitudService solicitudService;
@@ -37,7 +37,7 @@ public class SolicitudController {
     public ResponseEntity<?> createSolicitud(@Valid @RequestBody Solicitud solicitud) {
         return ResponseEntity.ok(solicitudService.createSolicitud(solicitud));
     }
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<?> updateSolicitud(@PathVariable Long id, @Valid @RequestBody Solicitud solicitud) {
         return solicitudService.updateSolicitud(id, solicitud)
                 .map(ResponseEntity::ok)

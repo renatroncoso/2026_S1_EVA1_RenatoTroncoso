@@ -20,7 +20,7 @@ public class SolicitudService {
     public List<Solicitud> getAllSolicituds(){
         return solicitudRepository.findAll();
     }
-    public Optional<Solicitud> getProductById(Long id){
+    public Optional<Solicitud> getSolicitudById(Long id){
         return solicitudRepository.findById(id);
     }
     public Solicitud createSolicitud(Solicitud solicitud){

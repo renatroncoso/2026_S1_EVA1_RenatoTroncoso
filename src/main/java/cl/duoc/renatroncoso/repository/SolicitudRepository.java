@@ -19,6 +19,14 @@ public class SolicitudRepository {
     public Optional<Solicitud> findById(Long id){
         return Optional.ofNullable(solicitudes.get(id));
     }
+    public Solicitud findByNivel(int nivel ){
+        for (Solicitud solicitud : solicitudes.values()) {
+            if (solicitud.getNivelPrioridad()==nivel) {
+                return solicitud;
+            }
+        }
+        return null;
+    }
     public Solicitud save(Solicitud solicitud){
         solicitudes.put(solicitud.getId(), solicitud);
         return solicitud;

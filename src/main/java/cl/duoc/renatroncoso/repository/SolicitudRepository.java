@@ -1,5 +1,6 @@
 package cl.duoc.renatroncoso.repository;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +20,9 @@ public class SolicitudRepository {
     public Optional<Solicitud> findById(Long id){
         return Optional.ofNullable(solicitudes.get(id));
     }
-    public Solicitud findByNivel(int nivel ){
+    public Solicitud findByFecha(Date fecha){
         for (Solicitud solicitud : solicitudes.values()) {
-            if (solicitud.getNivelPrioridad()==nivel) {
+            if (solicitud.getFechaRegistro().equals(fecha)) {
                 return solicitud;
             }
         }

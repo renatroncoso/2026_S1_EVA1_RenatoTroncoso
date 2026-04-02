@@ -1,5 +1,6 @@
 package cl.duoc.renatroncoso.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,9 @@ public class SolicitudService {
     }
     public Optional<Solicitud> getSolicitudById(Long id){
         return solicitudRepository.findById(id);
+    }
+    public Solicitud getSolicitudByFecha(Date fecha){
+        return solicitudRepository.findByFecha(fecha);
     }
     public Solicitud createSolicitud(Solicitud solicitud){
         return solicitudRepository.save(solicitud);

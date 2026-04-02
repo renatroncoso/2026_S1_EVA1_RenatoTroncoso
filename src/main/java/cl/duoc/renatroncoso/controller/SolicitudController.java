@@ -1,5 +1,6 @@
 package cl.duoc.renatroncoso.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,15 @@ public class SolicitudController {
     public ResponseEntity<List<Solicitud>> getAll(){
         return ResponseEntity.ok(solicitudService.getAllSolicituds());
     }
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/id")
     public ResponseEntity<?> getSolicitudById(@PathVariable Long id){
         return solicitudService.getSolicitudById(id)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
+    }
+    @GetMapping("/{fecha}/fecha")
+    public Solicitud getSolicitudByFecha(@PathVariable Date fecha){
+        return solicitudService.getSolicitudByFecha(fecha);
     }
     @PostMapping
     public ResponseEntity<?> createSolicitud(@Valid @RequestBody Solicitud solicitud) {
